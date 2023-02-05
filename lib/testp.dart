@@ -1,7 +1,7 @@
-import 'main.dart';
+import 'package:gdsc_sch_teama_project/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'getMediaQuery.dart';
+import 'package:gdsc_sch_teama_project/getMediaQuery.dart';
 
 class testp extends StatefulWidget {
   const testp({super.key});

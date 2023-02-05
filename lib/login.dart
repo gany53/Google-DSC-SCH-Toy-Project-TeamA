@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Next_Page.dart';
-import 'SignUp.dart';
+import 'package:gdsc_sch_teama_project/SignUp.dart';
+import 'package:gdsc_sch_teama_project/mainpage.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -27,12 +27,12 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Sign In'),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.grey,
           centerTitle: true,
-          leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.search), onPressed: () {})
-          ],
+          // leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+          // actions: <Widget>[
+          //   IconButton(icon: Icon(Icons.search), onPressed: () {})
+          // ],
         ),
         body: Builder(
           builder: (context) {
@@ -50,10 +50,10 @@ class _SignInState extends State<SignIn> {
                   Form(
                       child: Theme(
                           data: ThemeData(
-                              primaryColor: Colors.teal,
+                              primaryColor: Colors.grey,
                               inputDecorationTheme: InputDecorationTheme(
                                   labelStyle: TextStyle(
-                                      color: Colors.teal, fontSize: 15.0))),
+                                      color: Colors.grey, fontSize: 15.0))),
                           child: Container(
                             padding: EdgeInsets.all(40.0),
                             child: Column(
@@ -61,13 +61,13 @@ class _SignInState extends State<SignIn> {
                                 TextField(
                                   controller: controller,
                                   decoration:
-                                      InputDecoration(labelText: 'Email'),
+                                  InputDecoration(labelText: 'Email'),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 TextField(
                                   controller: controller2,
                                   decoration:
-                                      InputDecoration(labelText: 'Password'),
+                                  InputDecoration(labelText: 'Password'),
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
                                 ),
@@ -79,7 +79,7 @@ class _SignInState extends State<SignIn> {
                                     height: 50.0,
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          primary: Colors.orangeAccent,
+                                          primary: Colors.grey,
                                           onPrimary: Colors.white,
                                         ),
                                         child: Icon(
@@ -92,10 +92,7 @@ class _SignInState extends State<SignIn> {
                                               controller2.text == '1234') {
                                             Navigator.push(
                                                 context,
-                                                MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        id()));
+                                                MaterialPageRoute(builder: (BuildContext context) => main_page()));
                                           } else if (controller.text != 'ID' ||
                                               controller2.text != '1234') {
                                             showSnackBar(context);
@@ -107,7 +104,7 @@ class _SignInState extends State<SignIn> {
                                     textStyle: TextStyle(
                                       fontSize: 18, // 글자 크기
                                     ),
-                                    primary: Colors.blue, // 지정색
+                                    primary: Colors.grey, // 지정색
                                   ),
                                   onPressed: () {
                                     Navigator.push(

@@ -4,7 +4,8 @@ import 'package:gdsc_sch_teama_project/view_myparticipation.dart';
 import 'package:gdsc_sch_teama_project/view_mywriting.dart';
 import 'dart:math';
 import 'package:get/get.dart';
-
+import 'package:gdsc_sch_teama_project/login.dart';
+import 'package:gdsc_sch_teama_project/Mypage.dart';
 List<String> lists = [];
 String s = '';
 
@@ -19,18 +20,17 @@ class project extends StatelessWidget {
         theme: ThemeData(
             // 특정 색을 음영으로 가짐
             primarySwatch: Colors.grey),
-        home: MyHomePage());
+        home: MyHomePage_());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+class MyHomePage_ extends StatefulWidget {
+  const MyHomePage_({Key? key}) : super(key: key);
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage_> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage_> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           title: Text('POSTS'),
           centerTitle: true,
-          backgroundColor: Colors.white24),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.logout), onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => SignIn()));
+            })
+          ],
+          backgroundColor: Colors.grey),
 
       body: Center(
         child: Column(children: [
           SizedBox(height: 40),
           ElevatedButton(
-              child: Text("게시물 작성"),
+              child: Text('게시물 작성', style: TextStyle(fontSize: 20),
+              ),
               onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -95,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyHomePage(),
+                      builder: (context) => MyHomePage_(),
                     ));
               },
             ),
@@ -115,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => view_mywriting(),
+                      builder: (context) => Mypage(),
                     ));
               },
             ),
@@ -202,7 +209,7 @@ class WritingState extends State<Writing> {
             ElevatedButton(
               onPressed: () {
                 lists.add('$sav');
-                Get.to(MyHomePage());
+                Get.to(MyHomePage_());
               },
               child: Text("등록"),
             ),
@@ -228,7 +235,7 @@ class WritingState extends State<Writing> {
               onPressed: () {
                 print('$sav');
                 lists.remove('$s');
-                Get.to(MyHomePage());
+                Get.to(MyHomePage_());
               },
               child: Text("삭제"),
             ),
@@ -279,14 +286,14 @@ class Updating extends StatelessWidget {
           Row(children: [
             ElevatedButton(
               onPressed: () {
-                Get.to(MyHomePage());
+                Get.to(MyHomePage_());
               },
               child: Text("등록"),
             ),
             SizedBox(width: 10),
             ElevatedButton(
               onPressed: () {
-                Get.off(MyHomePage());
+                Get.off(MyHomePage_());
               },
               child: Text("참여"),
             ),
@@ -300,7 +307,7 @@ class Updating extends StatelessWidget {
             SizedBox(width: 10),
             ElevatedButton(
               onPressed: () {
-                Get.off(MyHomePage());
+                Get.off(MyHomePage_());
               },
               child: Text("삭제"),
             ),

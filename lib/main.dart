@@ -3,13 +3,13 @@ import 'package:gdsc_sch_teama_project/Login.dart';
 import 'package:gdsc_sch_teama_project/SignUp.dart';
 import 'package:gdsc_sch_teama_project/mainpage.dart';
 import 'package:gdsc_sch_teama_project/testp.dart';
-import 'view_mywriting.dart';
-import 'view_myparticipation.dart';
-import 'mainpage.dart';
-import 'testp.dart';
-import 'project.dart';
+import 'package:gdsc_sch_teama_project/view_mywriting.dart';
+import 'package:gdsc_sch_teama_project/view_myparticipation.dart';
+import 'package:gdsc_sch_teama_project/mainpage.dart';
+import 'package:gdsc_sch_teama_project/testp.dart';
+import 'package:gdsc_sch_teama_project/project.dart';
 import 'package:flutter/cupertino.dart';
-import 'getMediaQuery.dart';
+import 'package:gdsc_sch_teama_project/getMediaQuery.dart';
 import 'package:flutter/material.dart';
 
 // 각 페이지들 import
@@ -23,13 +23,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
+//SignIn
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -43,61 +45,61 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // 화면 이동 버튼, 새로운 페이지 만들때마다 복사해서 사용
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          // 화면 이동 버튼, 새로운 페이지 만들때마다 복사해서 사용
 
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => view_mywriting()));
-                  },
-                  child: Text("view_mywriting")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => view_myparticipation()));
-                  },
-                  child: Text("view_myparticipation")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => main_page()));
-                  },
-                  child: Text("main page")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => testp()));
-                  },
-                  child: Text("testp")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => project()));
-                  },
-                  child: Text("project")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => SignIn()));
-                  },
-                  child: Text("login")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => SignUp()));
-                  },
-                  child: Text("signup")),
-            ],
-          ),
-        ),
-      );
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => view_mywriting()));
+              },
+              child: Text("view_mywriting")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => view_myparticipation()));
+              },
+              child: Text("view_myparticipation")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => main_page()));
+              },
+              child: Text("main page")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => testp()));
+              },
+              child: Text("testp")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => project()));
+              },
+              child: Text("project")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => SignIn()));
+              },
+              child: Text("login")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => SignUp()));
+              },
+              child: Text("signup")),
+        ],
+      ),
+    ),
+  );
 }

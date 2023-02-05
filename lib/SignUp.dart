@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'Login.dart';
+import 'package:gdsc_sch_teama_project/main.dart';
+import 'package:gdsc_sch_teama_project/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Sign Up'),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.grey,
           centerTitle: true,
           leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
           actions: <Widget>[
@@ -58,10 +58,10 @@ class _SignUpState extends State<SignUp> {
                   Form(
                       child: Theme(
                           data: ThemeData(
-                              primaryColor: Colors.teal,
+                              primaryColor: Colors.grey.shade800,
                               inputDecorationTheme: InputDecorationTheme(
                                   labelStyle: TextStyle(
-                                      color: Colors.teal, fontSize: 15.0))),
+                                      color: Colors.grey.shade800, fontSize: 15.0))),
                           child: Container(
                               padding: EdgeInsets.all(40.0),
                               child: Column(children: <Widget>[
@@ -94,35 +94,10 @@ class _SignUpState extends State<SignUp> {
                                       labelText: 'Telephone Number'),
                                   keyboardType: TextInputType.text,
                                 ),
-                                SizedBox(
-                                  height: 40.0,
-                                ),
-                                ButtonTheme(
-                                    minWidth: 100.0,
-                                    height: 50.0,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Colors.orangeAccent,
-                                          onPrimary: Colors.white,
-                                        ),
-                                        child: Icon(
-                                          Icons.check,
-                                          color: Colors.white,
-                                          size: 35.0,
-                                        ),
-                                        onPressed: () {
-                                          if (controller.text ==
-                                              controller2.text) {
-                                            showSnackBar(context);
-                                          } else if (controller.text !=
-                                              controller2.text) {
-                                            showSnackBar2(context);
-                                          }
-                                        })),
                                 //분야 체크 박스
                                 Container(
                                   padding:
-                                      EdgeInsets.only(left: 20.0, top: 20.0),
+                                  EdgeInsets.only(left: 20.0, top: 20.0),
                                   child: Column(
                                     children: [
                                       Container(
@@ -139,80 +114,106 @@ class _SignUpState extends State<SignUp> {
                                           children: this
                                               .checkList
                                               .map<Widget>((String v) =>
-                                                  Container(
-                                                    margin:
-                                                        EdgeInsets.all(20.0),
-                                                    child: CheckboxListTile(
-                                                      onChanged: (bool? check) {
-                                                        setState(() {
-                                                          if (this
-                                                                  .checkListValue
-                                                                  .indexOf(v) >
-                                                              -1) {
-                                                            this
-                                                                .checkListValue
-                                                                .remove(v);
-                                                            return;
-                                                          }
-                                                          this
-                                                              .checkListValue
-                                                              .add(v);
-                                                          if (this.checkListValue ==
-                                                              checkList[4]) {
-                                                            TextField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      labelText:
-                                                                          'What?'),
-                                                              keyboardType:
-                                                                  TextInputType
-                                                                      .text,
-                                                            );
-                                                          }
-                                                        });
-                                                      },
-                                                      title: Text(v),
-                                                      value: this
-                                                                  .checkListValue
-                                                                  .indexOf(v) >
-                                                              -1
-                                                          ? true
-                                                          : false,
-                                                    ),
-                                                  ))
+                                              Container(
+                                                margin:
+                                                EdgeInsets.all(20.0),
+                                                child: CheckboxListTile(
+                                                  onChanged: (bool? check) {
+                                                    setState(() {
+                                                      if (this
+                                                          .checkListValue
+                                                          .indexOf(v) >
+                                                          -1) {
+                                                        this
+                                                            .checkListValue
+                                                            .remove(v);
+                                                        return;
+                                                      }
+                                                      this
+                                                          .checkListValue
+                                                          .add(v);
+                                                      if (this.checkListValue ==
+                                                          checkList[4]) {
+                                                        TextField(
+                                                          decoration:
+                                                          InputDecoration(
+                                                              labelText:
+                                                              'What?'),
+                                                          keyboardType:
+                                                          TextInputType
+                                                              .text,
+                                                        );
+                                                      }
+                                                    });
+                                                  },
+                                                  title: Text(v),
+                                                  value: this
+                                                      .checkListValue
+                                                      .indexOf(v) >
+                                                      -1
+                                                      ? true
+                                                      : false,
+                                                ),
+                                              ))
                                               .toList(),
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Center(
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                          Text('Etc'),
-                                          Checkbox(
-                                            value: _isChecked, //처음엔 false
-                                            onChanged: (value) {
-                                              //value가 false -> 클릭하면 true로 변경됨(두개 중 하나니까)
-                                              setState(() {
-                                                _isChecked =
-                                                    value!; //true가 들어감.
-                                                if (_isChecked == 'true') {
-                                                  TextField(
-                                                    decoration: InputDecoration(
-                                                        labelText: '어쩔'),
-                                                    keyboardType:
-                                                        TextInputType.text,
-                                                  );
-                                                }
-                                              });
-                                            },
-                                          ),
-                                        ])))
+                                // Padding(
+                                //     padding: const EdgeInsets.all(8.0),
+                                //     child: Center(
+                                //         child: Column(
+                                //             mainAxisAlignment:
+                                //             MainAxisAlignment.center,
+                                //             children: <Widget>[
+                                //               Text('Etc'),
+                                //               Checkbox(
+                                //                 value: _isChecked, //처음엔 false
+                                //                 onChanged: (value) {
+                                //                   //value가 false -> 클릭하면 true로 변경됨(두개 중 하나니까)
+                                //                   setState(() {
+                                //                     _isChecked =
+                                //                     value!; //true가 들어감.
+                                //                     if (_isChecked == 'true') {
+                                //                       TextField(
+                                //                         decoration: InputDecoration(
+                                //                             labelText: 'ㅡㅡ'),
+                                //                         keyboardType:
+                                //                         TextInputType.text,
+                                //                       );
+                                //                     }
+                                //                   });
+                                //                 },
+                                //               ),
+                                //             ]))),
+                                SizedBox(
+                                  height: 40.0,
+                                ),
+                                ButtonTheme(
+                                    minWidth: 100.0,
+                                    height: 50.0,
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.grey.shade700,
+                                          onPrimary: Colors.white,
+                                        ),
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                          size: 35.0,
+                                        ),
+                                        onPressed: () {
+                                          if (controller.text ==
+                                              controller2.text) {
+                                            showSnackBar(context);
+                                          } else if (controller.text !=
+                                              controller2.text) {
+                                            showSnackBar2(context);
+                                          }
+                                        })),
+
                               ]))))
                 ],
               ),
@@ -222,30 +223,30 @@ class _SignUpState extends State<SignUp> {
   }
 }
 
-class _checkbox extends State<SignUp> {
-  bool isChecked = false;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          const SizedBox(
-            height: 30,
-          ),
-          Checkbox(
-            checkColor: Colors.white,
-            value: isChecked,
-            onChanged: (bool? value) {
-              setState(() {
-                isChecked = value!;
-              });
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class _checkbox extends State<SignUp> {
+//   bool isChecked = false;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         children: <Widget>[
+//           const SizedBox(
+//             height: 30,
+//           ),
+//           Checkbox(
+//             checkColor: Colors.white,
+//             value: isChecked,
+//             onChanged: (bool? value) {
+//               setState(() {
+//                 isChecked = value!;
+//               });
+//             },
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 void showSnackBar(BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
