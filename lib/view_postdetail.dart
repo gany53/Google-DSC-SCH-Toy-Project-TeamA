@@ -4,6 +4,7 @@ import 'package:gdsc_sch_teama_project/view_myparticipation.dart';
 import 'package:gdsc_sch_teama_project/view_mywriting.dart';
 import 'dart:math';
 import 'package:get/get.dart';
+import 'package:gdsc_sch_teama_project/view_participant.dart';
 
 List<String> lists = [];
 String s = '';
@@ -31,10 +32,14 @@ class view_postdetail extends State<postdetail> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ElevatedButton(
+                child: Text("참여 인원 보기"),
                 onPressed: () {
                   //Get.to(MyHomePage());
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => participant()));
                 },
-                child: Text("참여 인원 보기"),
               ),
             ],
           ),
@@ -55,6 +60,7 @@ class view_postdetail extends State<postdetail> {
               },
             ),
           ),
+
           SizedBox(height: 20),
           Row(children: [
             Text('작성자 : haneul'),
@@ -102,3 +108,27 @@ class view_postdetail extends State<postdetail> {
     );
   }
 }
+
+// showDialog(
+//   context: context,
+//   barrierDismissible: false,
+//   builder: (BuildContext context){
+//     return AlertDialog(
+//       content: Text("게시글을 등록하시겠습니까?"),
+//       actions: [
+//         TextButton(
+//           child: Text('예'),
+//           onPressed: (){
+//             Navigator.of(context).pop();
+//           },
+//         ),
+//         TextButton(
+//           child: Text("아니오"),
+//           onPressed: (){
+//             Navigator.of(context).pop();
+//           },
+//         ),
+//       ],
+//     );
+//   },
+// );

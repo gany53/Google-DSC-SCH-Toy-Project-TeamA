@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:get/get.dart';
 import 'package:gdsc_sch_teama_project/login.dart';
 import 'package:gdsc_sch_teama_project/Mypage.dart';
+import 'package:gdsc_sch_teama_project/view_participant.dart';
 List<String> lists = [];
 String s = '';
 
@@ -158,6 +159,10 @@ class WritingState extends State<Writing> {
               ElevatedButton(
                 onPressed: () {
                   //Get.to(MyHomePage());
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => participant()));
                 },
                 child: Text("참여 인원 보기"),
               ),
